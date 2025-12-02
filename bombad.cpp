@@ -1,7 +1,8 @@
 #include <iostream>
 #include <conio.h>
-#include <windows.h>
 #include <cstdlib>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -54,7 +55,7 @@ void init() {
     spawnApple();
     gameOver = false;
 
-    srand(GetTickCount());
+    //srand(GetTickCount());
 }
 
 void drawBoard() {
@@ -149,7 +150,7 @@ int main() {
         input();
         updateSnake();
         drawBoard();
-        Sleep(200); // game speed
+        std::this_thread::sleep_for(std::chrono::milliseconds(200)); // game speed
     }
 
     cout << "Game Over!\n";
